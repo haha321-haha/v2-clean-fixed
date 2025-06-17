@@ -164,27 +164,32 @@ export default function SymptomTrackerTool({ locale }: { locale: string }) {
 
   // 更新症状
   const updateSymptom = (symptomKey: string, field: string, value: any) => {
-    setCurrentEntry(prev => ({
-      ...prev,
-      symptoms: {
-        ...prev.symptoms,
-        [symptomKey]: {
-          ...prev.symptoms?.[symptomKey],
-          [field]: value
+    setCurrentEntry((prev: Partial<SymptomEntry>) => {
+      const currentSymptom = prev.symptoms?.[symptomKey] || { intensity: 1, duration: 'short' };
+      const updatedEntry: Partial<SymptomEntry> = {
+        ...prev,
+        symptoms: {
+          ...prev.symptoms,
+          [symptomKey]: {
+            ...currentSymptom,
+            [field]: value
+          }
         }
-      }
-    }));
+      };
+      return updatedEntry;
+    });
   };
 
   // 移除症状
   const removeSymptom = (symptomKey: string) => {
-    setCurrentEntry(prev => {
+    setCurrentEntry((prev: Partial<SymptomEntry>) => {
       const newSymptoms = { ...prev.symptoms };
       delete newSymptoms[symptomKey];
-      return {
+      const updatedEntry: Partial<SymptomEntry> = {
         ...prev,
         symptoms: newSymptoms
       };
+      return updatedEntry;
     });
   };
 

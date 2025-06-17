@@ -1,4 +1,4 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 }
 
 export default async function SleepScenarioPage({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   
   const t = await getTranslations('scenarioSolutionsPage');
 
