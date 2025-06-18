@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { GraduationCap, Heart, Users, BookOpen, MessageCircle, Shield } from 'lucide-react';

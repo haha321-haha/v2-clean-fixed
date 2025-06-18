@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Users, PartyPopper, Clock, MessageCircle, Shield, Sparkles } from 'lucide-react';

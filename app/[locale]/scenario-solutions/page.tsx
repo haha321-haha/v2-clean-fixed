@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Briefcase, Car, Dumbbell, Bed, Users, Heart, GraduationCap, ArrowRight, Sparkles, Shield } from 'lucide-react';
